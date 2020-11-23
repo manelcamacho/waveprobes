@@ -1,0 +1,113 @@
+datatotal=readtable(?name of the file with data.txt');
+HD=height(datatotal);
+WD=width(datatotal);
+i=1;
+
+
+
+while i<=HD
+    for j=1:5
+        
+        if j==2
+           cd=datatotal{i,1};
+           CD{i,1}=cd;
+           cd=datatotal{i,j};
+           CD{i,j}=cd; 
+        end
+          
+        if j==3
+           cd2=datatotal{i,1};
+           CD2{i,1}=cd2;
+           cd2=datatotal{i,j};
+           CD2{i,j}=cd2;
+        end
+        
+         if j==4
+           cd3=datatotal{i,1};
+           CD3{i,1}=cd3;
+           cd3=datatotal{i,j};
+           CD3{i,j}=cd3; 
+         end
+        
+         if j==5
+           cd4=datatotal{i,1};
+           CD4{i,1}=cd4;
+           cd4=datatotal{i,j};
+           CD4{i,j}=cd4; 
+        end
+         
+    end
+   i=i+1;
+end
+
+Table=cell2table(CD);
+writetable(Table,?Name of the file to write sensor A.txt?,?Delimiter','\t');
+
+Table2=cell2table(CD2);
+writetable(Table2,'Name of the file to write sensor B.txt','Delimiter','\t');
+                   
+Table3=cell2table(CD3);
+writetable(Table3,'Name of the file to write sensor C.txt','Delimiter','\t');
+                   
+Table4=cell2table(CD4);
+writetable(Table4,?Name of the file to write sensor D.txt','Delimiter','\t');
+
+
+% Read the file as cell string line by line:
+fid = fopen('Name of the file to write sensor A.txt?, 'r');
+if fid < 0, error('Cannot open file: %s'); end
+Data = textscan(fid, '%s', 'delimiter', '\n', 'whitespace', '');
+fclose(fid);
+
+% Remove empty lines:
+C    = deblank(Data{1});   % [EDITED]: deblank added
+C(cellfun('isempty', C)) = [];
+% Write the cell string:
+fid = fopen('Name of the file to write sensor A.txt', 'w');
+if fid < 0, error('Cannot open file: %s', FileName); end
+fprintf(fid, '%s\n', C{:});
+fclose(fid);
+
+
+fid = fopen('Name of the file to write sensor B.txt', 'r');
+if fid < 0, error('Cannot open file: %s'); end
+Data = textscan(fid, '%s', 'delimiter', '\n', 'whitespace', '');
+fclose(fid);
+
+C    = deblank(Data{1});   % [EDITED]: deblank added
+C(cellfun('isempty', C)) = [];
+% Write the cell string:
+fid = fopen('Name of the file to write sensor B.txt', 'w');
+if fid < 0, error('Cannot open file: %s', FileName); end
+fprintf(fid, '%s\n', C{:});
+fclose(fid);
+
+
+
+fid = fopen('Name of the file to write sensor C.txt', 'r');
+if fid < 0, error('Cannot open file: %s'); end
+Data = textscan(fid, '%s', 'delimiter', '\n', 'whitespace', '');
+fclose(fid);
+
+C    = deblank(Data{1});   % [EDITED]: deblank added
+C(cellfun('isempty', C)) = [];
+% Write the cell string:
+fid = fopen('Name of the file to write sensor C.txt', 'w');
+if fid < 0, error('Cannot open file: %s', FileName); end
+fprintf(fid, '%s\n', C{:});
+fclose(fid);
+
+
+fid = fopen('Name of the file to write sponsor D.txt', 'r');
+if fid < 0, error('Cannot open file: %s'); end
+Data = textscan(fid, '%s', 'delimiter', '\n', 'whitespace', '');
+fclose(fid);
+
+C    = deblank(Data{1});   % [EDITED]: deblank added
+C(cellfun('isempty', C)) = [];
+% Write the cell string:
+fid = fopen('Name of the file to write sensor D.txt', 'w');
+if fid < 0, error('Cannot open file: %s', FileName); end
+fprintf(fid, '%s\n', C{:});
+fclose(fid);
+
