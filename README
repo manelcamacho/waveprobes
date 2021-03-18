@@ -1,4 +1,11 @@
-Code used to calibrate wave probes and obtained the standa deviation on each measurement, wave probes were calibrated by inserting them into the water column
+Code used to calibrate wave probes and obtained the standar deviation on each measurement, wave probes were calibrated by inserting them into the water column
 using a bar with pre-made incisions; the calibration followed the recommendations of the Wave Instrumentation Database as:
 MARINET Report Work Package 2: Standards and Best Practice.
 Report available at: https://tethys.pnnl.gov/sites/default/files/publications/D2.01_Wave_Instrumentation_Database.pdf
+
+The code has two small scripts that are used to:
+1.- Calibrate wave probes input voltage vs water column height (Wolfram Language).
+2.- Order wave data into individual files and clean possible blank data spaces caused by malfunctions (Matlab code).
+
+Wolfram Lamguage is free to use and its free for plattaforms as the Raspberry pi, however MATLAB will need a valid license of the software. 
+The scripts however are simple and could be easily translated into OCTAVE/R/Python easily.
